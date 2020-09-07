@@ -5,8 +5,17 @@ import time
 import random
 from random import randint
 from datetime import datetime
+import os
 mydb = sqlite3.connect("database.db")
 mycursor = mydb.cursor()
+
+
+def clr_screen():
+    if os.name == "posix":
+        os.system("clear")
+
+    else:
+        os.system("cls")
 
 
 def login():
@@ -51,7 +60,7 @@ def login():
 
 
 def main():
-    print("="*20, "HOTEL MANAGEMENT SYSTEM", "="*20)
+    heading()
     print("\n", "="*8, "MAIN MENU", "="*8, "\n")
 
     print("OPTION 1: ADMISSION MENU")
@@ -80,18 +89,54 @@ def main():
 
 
 def ADMMISSION_MENU():
-    pass
+    print("\n", "="*8, "ADMISSION_MENU", "="*8, "\n")
+
+    print("OPTION 1: ADD STUDENT")
+    print("OPTION 2: DEL STUDENT")
+    print("OPTION 3: SHOW STUDENTS")
+    options = [str(i) for i in range(1, 4)]
+
+    def add_student():
+        rollno = random.randint(10000, 99999)
+        NAME=input("ENTER NAME OF STUDENT: ")
+        SEX=input("ENTER SEX OF THE STUDENT (M/F): ")
+        PHONE_NO=input("ENTER PHONE NUMBER OF PARENT: ")
+        EMAIL_ID=input("ENTER EMAIL ID OF PARENT: ")
+        DOB=i
+        pass
+
+    def del_student():
+        pass
+
+    def show_students():
+        pass
+
+    while True:
+        response = input("\n ENTER OPTION NUMBERS: ")
+        if response not in options or response == "" or response.isspace():
+            print("\n", "="*8, "ENTER VALID OPTION", "="*8, "\n")
+        elif response == options[0]:
+            add_student()
+            break
+        elif response == options[1]:
+            del_student()
+            break
+        elif response == options[2]:
+            show_students()
+            break
 
 
 def STUDENT_DATA():
     pass
 
+
 def FEES_DETAILS():
     pass
+
 
 def STAFF_DETAILS():
     pass
 
 
 if __name__ == "__main__":
-    login()
+    ADMMISSION_MENU()
