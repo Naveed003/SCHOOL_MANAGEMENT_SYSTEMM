@@ -1,9 +1,11 @@
-import time
+def hell():
+    a="hello"
+    def naveed():
+        print(a)
+        global b
+        b=a
+    
+    naveed()
+    print(b)
 
 
-print("hello")
-time.sleep(2)
-import os
-os.system("clear")
-
-print("stfu")

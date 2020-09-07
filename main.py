@@ -16,6 +16,7 @@ def clr_screen():
 
     else:
         os.system("cls")
+    
 
 
 def login():
@@ -37,7 +38,7 @@ def login():
                     list.append(j)
             if list == check:
                 print("\n", "="*8, "LOGIN SUCCESSFULL", "="*8, "\n")
-                time.sleep(4)
+                time.sleep(2)
                 main()
                 a = 2
             else:
@@ -60,7 +61,7 @@ def login():
 
 
 def main():
-    heading()
+    print("\n", "="*14, "SCHOOL MANAGEMENT SYSTEM", "="*14, "\n")
     print("\n", "="*8, "MAIN MENU", "="*8, "\n")
 
     print("OPTION 1: ADMISSION MENU")
@@ -72,7 +73,7 @@ def main():
     while True:
         response = input("\nENTER OPTION NUMBER: ")
         if response not in list:
-            print("\n", "="*8, "ENTER A VALID OPTION", "="*8, "\n")
+            print("\n", "="*4, "ENTER A VALID OPTION", "="*4, "\n")
 
         elif response == list[0]:
             ADMMISSION_MENU()
@@ -97,13 +98,12 @@ def ADMMISSION_MENU():
     options = [str(i) for i in range(1, 4)]
 
     def add_student():
-        rollno = random.randint(10000, 99999)
-        NAME=input("ENTER NAME OF STUDENT: ")
-        SEX=input("ENTER SEX OF THE STUDENT (M/F): ")
-        PHONE_NO=input("ENTER PHONE NUMBER OF PARENT: ")
-        EMAIL_ID=input("ENTER EMAIL ID OF PARENT: ")
-        DOB=i
-        pass
+        name()
+        sex()
+        phone_no()
+        email_id()
+        dob()
+
 
     def del_student():
         pass
@@ -111,6 +111,35 @@ def ADMMISSION_MENU():
     def show_students():
         pass
 
+    def name():
+        global NAME 
+        NAME=input("ENTER NAME OF STUDENT: ")
+    def sex():
+        global SEX
+        while True:
+            SEX=input("ENTER SEX OF THE STUDENT (M/F): ")
+            if len(SEX)!=1:
+                print("\n", "="*4, "ENTER A VALID SEX", "="*4, "\n")
+            elif SEX.lower() not in ["m","f"]:
+                print("\n", "="*4, "ENTER A VALID SEX", "="*4, "\n")
+            else:
+                break
+
+
+    def phone_no():
+        global PHONE_NO
+        PHONE_NO=input("ENTER PHONE NUMBER OF PARENT: ")
+        
+    def email_id():
+        global EMAIL_ID
+        EMAIL_ID=input("ENTER EMAIL ID OF PARENT: ")
+    def dob():
+        global DOB
+        dob=input("ENTER DOB OF STUDENT (YYYY-MM-DD): ")
+        
+
+
+    
     while True:
         response = input("\n ENTER OPTION NUMBERS: ")
         if response not in options or response == "" or response.isspace():
@@ -139,4 +168,4 @@ def STAFF_DETAILS():
 
 
 if __name__ == "__main__":
-    ADMMISSION_MENU()
+    login()
